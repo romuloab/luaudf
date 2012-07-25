@@ -1,5 +1,6 @@
 drop external function lua;
+commit;
 declare external function LUA
-    cstring(4096)
-    returns cstring(4096) free_it
-    entry_point 'fb_lua' module_name 'luaudf';
+    varchar(4096) by descriptor, varchar(4096) by descriptor
+    returns parameter 2
+    entry_point 'fb_lua' module_name '/opt/firebird/UDF/luaudf.so';
